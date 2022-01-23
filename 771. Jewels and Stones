@@ -1,0 +1,17 @@
+class Solution {
+public:
+    int numJewelsInStones(string jewels, string stones) {
+        
+        map<char,int> m;
+        int count=0;
+        for(auto z:stones){
+            m[z]++;
+        }
+        for(auto n:jewels){
+            if(m[n]>0){
+                count=count+m[n];
+            }
+        }
+        return count;
+    }
+};
