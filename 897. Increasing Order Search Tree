@@ -1,0 +1,31 @@
+class Solution {
+public:
+    TreeNode* temp= new TreeNode();
+        TreeNode* head=temp;
+
+ 
+    void Traversal(TreeNode*v){
+        if(v==NULL)
+            return;
+        Traversal(v->left);
+        
+        temp->right=v;
+        temp->left=NULL;
+        temp=temp->right;
+        
+        Traversal(v->right);
+      
+        
+    }
+   
+    TreeNode* increasingBST(TreeNode* root) {
+        
+        Traversal(root);
+         
+        temp->left=NULL;
+        return head->right;
+        
+        
+        
+    }
+};
