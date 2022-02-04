@@ -1,0 +1,25 @@
+public:
+    int timeRequiredToBuy(vector<int>& tickets, int k) {
+        
+      int i=0,j=0,l=0,c=0;  
+        int r=tickets[k];
+  while(r--) {
+      
+     
+      
+      for(i=0;i<tickets.size();i++){
+           if(tickets[k]==0){
+               break;
+           }
+          if(tickets[i]>0)
+          { tickets[i]--;
+             c++;          
+          }
+      }   
+      j=j+l;
+      cout<<j<<" ";
+  }    
+     
+    return c;    
+    }
+};
