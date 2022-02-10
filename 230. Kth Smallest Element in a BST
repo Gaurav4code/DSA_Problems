@@ -1,0 +1,23 @@
+class Solution {
+public:
+    vector<int> v;
+    void Travel(TreeNode* root){
+           if(root==NULL)
+               return;
+        Travel(root->left);
+        v.push_back(root->val);
+        Travel(root->right);
+        
+    }
+    int kthSmallest(TreeNode* root, int k) {
+        
+        Travel(root);
+        sort(v.begin(),v.end());
+        
+        
+        return v[k-1];
+        
+        
+        
+    }
+};
