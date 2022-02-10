@@ -1,0 +1,28 @@
+class Solution {
+public:
+    vector<int> v;
+    void travel(TreeNode* root){
+        if(root==NULL)
+            return;
+        v.push_back(root->val); 
+        travel(root->left);
+      
+       travel(root->right);
+        
+        
+    }
+    int getMinimumDifference(TreeNode* root) {
+        travel(root);
+        vector<int> p;
+       sort(v.begin(),v.end());
+       for(int i=0;i<v.size()-1;i++)
+       {  int c=abs(v[i]-v[i+1]);
+           p.push_back(c);
+       }
+        sort(p.begin(),p.end());
+                       
+        int x=abs(p[0]);
+        
+        return x;
+    }
+};
