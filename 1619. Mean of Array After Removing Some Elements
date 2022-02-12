@@ -1,0 +1,25 @@
+class Solution {
+public:
+    double trimMean(vector<int>& arr) {
+        
+        int s=arr.size();
+        vector<int> v;
+        int p=0.05*s;
+        
+        sort(arr.begin(),arr.end());
+        for(int i=p;i<s-p;i++){
+            v.push_back(arr[i]);
+            cout<<arr[i]<<" ";
+            
+        }
+        sort(v.begin(),v.end());
+        double sum=0;
+        for(int i=0;i<v.size();i++){
+            sum=sum+v[i];
+        }
+        int f=v.size();
+        double mean=sum/f;
+        
+        return mean;
+    }
+};
