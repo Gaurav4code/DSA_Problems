@@ -1,0 +1,28 @@
+class Solution {
+public:
+    int thirdMax(vector<int>& nums) {
+        set<int> s(nums.begin(),nums.end());
+        priority_queue<int> m;
+        map<int,int>ma;
+        for(int i=0;i<nums.size();i++){
+            ma[nums[i]]++;
+        }
+        int h=3;
+        for(auto l:ma){
+            m.push(l.first);
+        }
+        
+        if(m.size()<3){
+            return m.top();
+        }
+        int g = 3;
+        int y;
+        while(g--){
+             y=m.top();
+             m.pop();
+            
+        }
+        
+        return y;
+    }
+};
