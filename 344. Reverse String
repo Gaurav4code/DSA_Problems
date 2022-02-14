@@ -1,0 +1,24 @@
+class Solution {
+public:
+    void reverseString(vector<char>& s) {
+        
+        
+        vector<char> h;
+        stack<char> l;
+        int y=s.size();
+        for(int i=0;i<y;i++){
+            l.push(s[i]);
+            
+            
+        }
+        int k=0;
+        while(k<y){
+            char i=l.top();
+            l.pop();
+            s[k]=i;
+            k++;
+                
+        }
+        
+    }
+};
