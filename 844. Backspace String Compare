@@ -1,0 +1,42 @@
+class Solution {
+public:
+    string simplify(string s){
+        stack<char> st,st1;
+        string l="";
+        for(int i=0;i<s.length();i++)
+        {    if(s[i]!='#' )
+            { 
+           
+                     st.push(s[i]);//O(1)
+            }
+            
+            if( s[i]=='#' && !st.empty())
+            st.pop();//o(1)
+           
+        }
+        
+        while(!st.empty()){//reversing the stack with use of another stack
+            st1.push(st.top());
+            st.pop();
+        }
+        
+        while(!st1.empty()){
+            char t=st1.top();//making the required string 
+            st1.pop();
+            l=l+t;
+        }
+        
+        return l;
+    }
+    bool backspaceCompare(string s, string t) {
+        
+       string k= simplify(s);
+       string j=simplify( t);
+       // cout<<k<<"  "<<j;
+        if(k==j)
+            return 1;
+        else
+            return 0;
+        
+    }
+};
