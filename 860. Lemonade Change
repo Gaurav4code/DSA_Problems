@@ -1,0 +1,16 @@
+    bool lemonadeChange(vector<int>& bills) {
+        int cnt[21] = {0};
+        for (int b: bills) {
+            ++cnt[b];
+            if (b == 5) continue;
+            if (b == 10) {
+                if (--cnt[5] >= 0) continue;
+                return false;
+            }
+			// b == 20
+            if (cnt[10] && cnt[5]) { --cnt[10]; --cnt[5]; continue; }
+            if (cnt[5] >= 3) { cnt[5] -= 3; continue; }
+            return false;
+        }
+        return true;
+    }
